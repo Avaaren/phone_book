@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Local 
-    'bool.apps.BookConfig',
+    'book.apps.BookConfig',
 
     # 3-rd party
     'rest_framework',
