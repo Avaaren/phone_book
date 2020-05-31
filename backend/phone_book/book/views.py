@@ -26,6 +26,17 @@ class PersonListView(ListCreateAPIView):
         persons = Person.objects.all()
         serializer = PersonSerializer(persons, many=True)
         return Response(serializer.data)
+    def post(self, request):
+        # Create an article from the above data
+        # print(request.data)
+        serializer = PersonSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            person = serializer.save()
+            serializer = PersonSerializer(person)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class PersonEditView(RetrieveUpdateDestroyAPIView):
