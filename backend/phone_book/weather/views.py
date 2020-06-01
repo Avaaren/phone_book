@@ -1,4 +1,8 @@
-from rest_framework.generics import ListAPIView, ListCreateAPIView
+from rest_framework.generics import (
+    ListAPIView,
+    ListCreateAPIView,
+    RetrieveUpdateDestroyAPIView
+)
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -6,6 +10,7 @@ from .models import Weather, City
 from .serializers import WeatherSerializer, CitySerializer
 
 from .utils import make_request, create_or_update_weather
+from .tasks import update_weather_data
 import requests
 
 
@@ -23,4 +28,8 @@ class AddCityView(ListCreateAPIView):
 
         create_or_update_weather(response=response, statement='create')
         return serializer.save()
+
+class DeleteCityView(RetrieveUpdateDestroyAPIView):
+    serializer_class = CitySerializer
+    queryset = City.objects.all()
 
