@@ -129,6 +129,6 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {
     'update_weather': {
         'task': 'weather.tasks.update_weather_data',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/30'),
     }
 }
