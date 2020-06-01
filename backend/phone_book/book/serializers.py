@@ -8,7 +8,7 @@ class PhoneNumberSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = PhoneNumber
-        fields = ('number', 'type_of_number')
+        fields = ('id', 'number', 'type_of_number')
 
 
 class PersonSerializer(serializers.ModelSerializer):
