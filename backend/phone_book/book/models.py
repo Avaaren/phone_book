@@ -18,8 +18,8 @@ class Person(models.Model):
 
 class PhoneNumber(models.Model):
     PHONE_TYPES = (
-        ('Мобильный', 'МОБИЛЬНЫЙ'),
-        ('Домашний', 'ДОМАШНИЙ'),
+        ('Мобильный', 'Мобильный'),
+        ('Домашний', 'Домашний'),
     )
 
     number = models.CharField('Номер телефона', max_length=35)
