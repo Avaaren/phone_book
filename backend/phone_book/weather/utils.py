@@ -16,12 +16,13 @@ def create_or_update_weather(response, statement, weather=None):
     weather_icon_id = response['weather'][0].get('icon')
 
     if statement == 'update':
-        weather.update(
-            temperature=temperature,
-            wind_speed=wind_speed,
-            weather_condition=weather_condition,
-            weather_icon_id=weather_icon_id,
-        )
+        weather.temperature=temperature
+        weather.wind_speed=wind_speed
+        weather.weather_condition=weather_condition
+        weather.weather_icon_id=weather_icon_id
+
+        weather.save()
+        
     if statement == 'create':
 
         Weather.objects.get_or_create(
