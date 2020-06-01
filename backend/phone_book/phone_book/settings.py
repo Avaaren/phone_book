@@ -127,8 +127,8 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json' 
 
 CELERY_BEAT_SCHEDULE = {
-    'update_number_of_commits': {
-        'task': 'github.tasks.update_number_of_commits',
-        'schedule': crontab(hour='*/6'),
+    'update_weather': {
+        'task': 'weather.tasks.update_weather_data',
+        'schedule': crontab(minute='*/1'),
     }
 }
