@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Local 
     'book.apps.BookConfig',
+    'weather.apps.WeatherConfig',
 
     # 3-rd party
     'rest_framework',
