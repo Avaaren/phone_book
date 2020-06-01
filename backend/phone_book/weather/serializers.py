@@ -16,3 +16,11 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = ('name',)
+
+    def create(self, validated_data):
+        city_name = validated_data.get('name')
+
+        obj, created = City.objects.get_or_create(name=city_name)
+
+        return obj
+        
